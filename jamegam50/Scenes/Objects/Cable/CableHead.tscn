@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://blam80j2k3vim"]
+
+[ext_resource type="Script" uid="uid://x0i74kj86a35" path="res://Scripts/Objects/Cable/cable_head.gd" id="1_n5jpd"]
+[ext_resource type="Texture2D" uid="uid://c0g1g4ydey83u" path="res://Resources/Cablev1.png" id="2_n5jpd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5jpd"]
+size = Vector2(13, 12)
+
+[node name="CableHead" type="Area2D"]
+script = ExtResource("1_n5jpd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_n5jpd")
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://Resources",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://Resources/Cablev1.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "6b161f40a3a724c6d716a7d2a3097c70"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_n5jpd")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.5, 0)
+scale = Vector2(0.65, 0.6)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
