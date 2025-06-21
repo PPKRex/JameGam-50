@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0gdo2sp0dg43"]
+
+[ext_resource type="Script" uid="uid://mak7hn0odmm6" path="res://Scripts/Objects/Utils/circuit_counter.gd" id="1_5i6d1"]
+
+[node name="CircuitCounter" type="Node"]
+script = ExtResource("1_5i6d1")

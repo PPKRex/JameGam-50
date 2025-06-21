@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dqaxn5i2104ej"
+path="res://.godot/imported/CableHead.aseprite-a95c7d2a2738f8b647212ea5cc44fb0a.res"
+
+[deps]
+
+source_file="res://Resources/CableHead.aseprite"
+dest_files=["res://.godot/imported/CableHead.aseprite-a95c7d2a2738f8b647212ea5cc44fb0a.res"]
+
+[params]
+

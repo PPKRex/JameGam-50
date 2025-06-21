@@ -1,19 +1,115 @@
-[gd_scene load_steps=3 format=3 uid="uid://de6u18luleeua"]
+[gd_scene load_steps=8 format=3 uid="uid://de6u18luleeua"]
 
 [ext_resource type="Script" uid="uid://ciey10pvgiccq" path="res://Scripts/Objects/Cable/cable_main.gd" id="1_hao6s"]
-[ext_resource type="Texture2D" uid="uid://c0g1g4ydey83u" path="res://Resources/Cablev1.png" id="2_at03y"]
+[ext_resource type="Texture2D" uid="uid://dshe3vw4oubxs" path="res://Resources/CableHead.png" id="2_at03y"]
+
+[sub_resource type="Animation" id="Animation_libsg"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_wybq3"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_y4qbm"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_bielm"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3hha8"]
+_data = {
+&"down": SubResource("Animation_libsg"),
+&"left": SubResource("Animation_wybq3"),
+&"right": SubResource("Animation_y4qbm"),
+&"up": SubResource("Animation_bielm")
+}
 
 [node name="CableMain" type="Node2D"]
-visible = false
 scale = Vector2(4, 4)
 script = ExtResource("1_hao6s")
+speedTime = 0.3
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.5
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 texture = ExtResource("2_at03y")
+hframes = 2
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Resources/CableHead.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "dd3896c296443eed0457ad3bc3978d96"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3hha8")
+}
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(0.375, 0.375)

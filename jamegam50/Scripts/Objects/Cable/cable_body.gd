@@ -5,7 +5,6 @@ extends Node2D
 var spriteSelected :String = "horizontal"
 
 func set_sprite(name: String) -> void:
-	print (name)
 	spriteSelected = name   
 	if is_inside_tree():    # por si se llama más tarde
 		anim.play(name)

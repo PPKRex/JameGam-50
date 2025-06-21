@@ -1,0 +1,243 @@
+[gd_scene load_steps=14 format=3 uid="uid://cmwc03qcl11v8"]
+
+[ext_resource type="Script" uid="uid://byugdwg4q6fhk" path="res://Scripts/Objects/Utils/level_completed.gd" id="1_gx20u"]
+[ext_resource type="Texture2D" uid="uid://d0ew3s1wf1fas" path="res://Scenes/Objects/Utils/littleWhale.png" id="3_633uq"]
+[ext_resource type="Texture2D" uid="uid://d0ew3s1wf1fas" path="res://Scenes/Objects/Utils/littleWhale.png" id="4_480lr"]
+[ext_resource type="Texture2D" uid="uid://d0ew3s1wf1fas" path="res://Scenes/Objects/Utils/littleWhale.png" id="4_iky64"]
+
+[sub_resource type="Animation" id="Animation_yvc7p"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelCompleteWhale:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_633uq"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelCompleteWhale:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_480lr"]
+_data = {
+&"emptyWhale": SubResource("Animation_633uq"),
+&"fullWhale": SubResource("Animation_yvc7p")
+}
+
+[sub_resource type="Animation" id="Animation_480lr"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NoTouchedCableWhale:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_iky64"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NoTouchedCableWhale:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hc3ad"]
+_data = {
+&"emptyWhale": SubResource("Animation_iky64"),
+&"fullWhale": SubResource("Animation_480lr")
+}
+
+[sub_resource type="Animation" id="Animation_hc3ad"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LowTilesWhale:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7q30g"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LowTilesWhale:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_av80c"]
+_data = {
+&"emptyWhale": SubResource("Animation_7q30g"),
+&"fullWhale": SubResource("Animation_hc3ad")
+}
+
+[node name="LevelCompleted" type="Control"]
+process_mode = 2
+z_index = 10
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gx20u")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "LEVEL COMPLETED
+
+PRESS ENTER TO NEXT"
+
+[node name="LevelCompleteWhale" type="Sprite2D" parent="Label"]
+texture_filter = 1
+position = Vector2(-106.5, 133.5)
+scale = Vector2(4, 4)
+texture = ExtResource("4_480lr")
+hframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "Label/CompletedWhale",
+"slice": "",
+"source": "res://Resources/littleWhale.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "0db8fe7977d11ce4c6c29e94466e953f"
+
+[node name="CompletedWhale" type="AnimationPlayer" parent="Label/LevelCompleteWhale"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_480lr")
+}
+
+[node name="NoTouchedCableWhale" type="Sprite2D" parent="Label"]
+texture_filter = 1
+position = Vector2(85.5, 197.5)
+scale = Vector2(4, 4)
+texture = ExtResource("3_633uq")
+hframes = 2
+frame = 1
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "Label/NoTouchedWhale",
+"slice": "",
+"source": "res://Resources/littleWhale.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "0db8fe7977d11ce4c6c29e94466e953f"
+
+[node name="NoTouchedWhale" type="AnimationPlayer" parent="Label/NoTouchedCableWhale"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_hc3ad")
+}
+
+[node name="LowTilesWhale" type="Sprite2D" parent="Label"]
+texture_filter = 1
+position = Vector2(277.5, 133.5)
+scale = Vector2(4, 4)
+texture = ExtResource("4_iky64")
+hframes = 2
+frame = 1
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "Label/LowWhale",
+"slice": "",
+"source": "res://Resources/littleWhale.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "0db8fe7977d11ce4c6c29e94466e953f"
+
+[node name="LowWhale" type="AnimationPlayer" parent="Label/LowTilesWhale"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_av80c")
+}
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
